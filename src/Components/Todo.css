@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt&display=swap");
+* {
+  font-family: "Prompt", sans-serif;
+}
+body {
+  background-image: url("https://images.unsplash.com/photo-1640906152676-dace6710d24b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80");
+
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.todo-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  height: 620px;
+  margin: auto;
+  padding: 10px;
+  text-align: center;
+  backdrop-filter: blur(7px) saturate(90%);
+  -webkit-backdrop-filter: blur(7px) saturate(90%);
+  background-color: rgba(34, 34, 34, 0.52);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+h1 {
+  margin: 0px;
+  margin-bottom: 15px;
+  color: white;
+}
+h2 {
+  margin: 0px;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.input-section {
+  background-color: rgba(255, 255, 255, 0.055);
+  padding: 18px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 6px;
+  border-color: rgba(255, 255, 255, 0.459);
+  padding: 5px;
+}
+.input-section input {
+  background-color: transparent;
+  border-radius: 5px;
+  border: 1px solid rgb(226, 226, 226);
+  width: 90%;
+  padding: 10px;
+  border-color: rgba(255, 255, 255, 0.459);
+  box-sizing: border-box;
+  outline: none;
+  color: rgba(255, 255, 255, 0.74);
+  font-weight: 900;
+  font-size: medium;
+}
+.add {
+  text-align: center;
+  cursor: pointer;
+  font-size: larger;
+  font-weight: 900;
+  color: rgb(255, 255, 255);
+  padding-right: 8px;
+}
+input::placeholder {
+  color: rgba(255, 255, 255, 0.589);
+}
+ul {
+  text-align: left;
+  padding: 0px;
+  max-height: 335px;
+  overflow-y: auto;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  margin-left: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.185);
+  border-radius: 2px;
+}
+ul li {
+  display: flex;
+  width: 405px;
+  list-style: none;
+  background-color: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.404);
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 12px;
+  color: rgba(255, 255, 255, 0.74);
+  font-weight: 900;
+}
+.checkbox {
+  margin-left: -6px;
+  margin-right: 6px;
+}
+
+.delete {
+  cursor: pointer;
+  text-align: right;
+  flex: 1;
+}
+.clearlist {
+  width: 300px;
+  height: 48px;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.74);
+  font-weight: 900;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.clearlist:hover {
+  width: 300px;
+  height: 48px;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.74);
+  font-weight: 900;
+  border: 1px solid rgba(255, 255, 255, 0.178);
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.75s;
+}
