@@ -28,60 +28,105 @@ function Todo() {
   };
 
   return (
-    <div className="todo-container">
-      <h1>TODO LIST</h1>
+    <div className="home">
+      <div className="header">
+        <h1>Todo List</h1>
+        <br />
+        <h2>Whoop, it's {days[new Date().getDay()]}</h2>
+      </div>
+      <div className="main">
+        <div className="add-task">
+          <h1>Add Task</h1>
+          <div className="input-section">
+            <input
+              value={input}
+              onChange={(event) => setInput(event.target.value)}
+              type="text"
+              placeholder=" Add item..."
+            />
+            <div className="add">
+              <i onClick={handleInput} className="fas fa-plus" />
+            </div>
+          </div>
+          <ul>
+            {items.map((obj, index) => {
+              return (
+                <li className="list" key={index}>
+                  <div className="checkbox">
+                    <input
+                      key={index}
+                      type="checkbox"
+                      name="checkbox"
+                      checked={obj.status}
+                      onChange={(event) => {
+                        setItems(
+                          items.filter((obj2) => {
+                            if (obj2.id === obj.id) {
+                              obj2.status = event.target.checked;
+                            }
+                            return obj2;
+                          })
+                        );
+                      }}
+                    />
+                  </div>
+                  {obj.text}
+                  <div className="delete">
+                    <i
+                      onClick={() => deleteItem(index)}
+                      className="fas fa-trash"
+                    ></i>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
 
-      <h2>Whoop, it's {days[new Date().getDay()]}</h2>
-
-      <div className="input-section">
-        <input
-          value={input}
-          onChange={(event) => setInput(event.target.value)}
-          type="text"
-          placeholder="Add item..."
-        />
-        <div className="add">
-          <i onClick={handleInput} className="fas fa-plus" />
+        <div className="completed-task">
+          <h1>Completed Task</h1>
+          <ul>
+            {items.map((obj, index) => {
+              if (obj.status) {
+                return (
+                  <li className="list" key={index}>
+                    <div className="checkbox">
+                      <input
+                        key={index}
+                        type="checkbox"
+                        name="checkbox"
+                        checked={obj.status}
+                        onChange={(event) => {
+                          setItems(
+                            items.filter((obj2) => {
+                              if (obj2.id === obj.id) {
+                                obj2.status = event.target.checked;
+                              }
+                              return obj2;
+                            })
+                          );
+                        }}
+                      />
+                    </div>
+                    {obj.text}
+                    <div className="delete">
+                      <i
+                        onClick={() => deleteItem(index)}
+                        className="fas fa-trash"
+                      ></i>
+                    </div>
+                  </li>
+                );
+              }
+            })}
+          </ul>
         </div>
       </div>
-      <ul>
-        {items.map((obj, index) => {
-          return (
-            <li className="list" key={index}>
-              <div className="checkbox">
-                <input
-                  key={index}
-                  type="checkbox"
-                  name="checkbox"
-                  checked={obj.status}
-                  onChange={(event) => {
-                    console.log(event.target.checked);
-                    console.log(obj);
-                    setItems(
-                      items.filter((obj2) => {
-                        if (obj2.id === obj.id) {
-                          obj2.status = event.target.checked;
-                        }
-                        return obj2;
-                      })
-                    );
-                  }}
-                />
-              </div>
-              {obj.text}
-              <div className="delete">
-                <i
-                  onClick={() => deleteItem(index)}
-                  className="fas fa-trash"
-                ></i>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
-      <button className="clearlist" onClick={() => setItems([])}>
-        Clear List
-      </button>
+      <div className="footer">
+        <button className="clearlist" onClick={() => setItems([])}>
+          Clear All
+        </button>
+      </div>
     </div>
   );
 }
